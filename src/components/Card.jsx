@@ -110,22 +110,26 @@ const Card = ({ id, title, children, status = "pending" }) => {
         {dropdownVisible && (
           <div className="absolute top-12 right-4 bg-white text-black rounded-lg shadow-lg w-40 z-10">
             <ul className="px-2 py-1">
-              <li
-                className={`cursor-pointer hover:bg-gray-200 px-2 py-1 rounded ${
-                  selectedOption === "Option 1" ? "bg-gray-300" : ""
-                }`}
-                onClick={handleSetActive}
-              >
-                Active
-              </li>
-              <li
-                className={`cursor-pointer hover:bg-gray-200 px-2 py-1 rounded ${
-                  selectedOption === "Option 2" ? "bg-gray-300" : ""
-                }`}
-                onClick={handleSetCompleted}
-              >
-                Completed
-              </li>
+              {!(status === "active") && (
+                <li
+                  className={`cursor-pointer hover:bg-gray-200 px-2 py-1 rounded ${
+                    selectedOption === "Option 1" ? "bg-gray-300" : ""
+                  }`}
+                  onClick={handleSetActive}
+                >
+                  Active
+                </li>
+              )}
+              {!(status === "completed") && (
+                <li
+                  className={`cursor-pointer hover:bg-gray-200 px-2 py-1 rounded ${
+                    selectedOption === "Option 2" ? "bg-gray-300" : ""
+                  }`}
+                  onClick={handleSetCompleted}
+                >
+                  Completed
+                </li>
+              )}
               <li
                 className={`cursor-pointer hover:bg-gray-200 px-2 py-1 rounded ${
                   selectedOption === "Option 3" ? "bg-gray-300" : ""
