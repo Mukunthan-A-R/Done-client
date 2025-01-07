@@ -1,5 +1,6 @@
 import React from "react";
 import { IoSettingsOutline } from "react-icons/io5";
+import { IoStatsChartOutline } from "react-icons/io5";
 
 import DialogBox from "./DialogBox";
 import DeleteAll from "./DeleteConfirmationDialog";
@@ -13,6 +14,9 @@ const Tools = () => {
 
       <button>
         <IoSettingsOutline size={25} />
+      </button>
+      <button>
+        <IoStatsChartOutline size={25} />
       </button>
     </div>
   );

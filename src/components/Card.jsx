@@ -40,12 +40,7 @@ const Card = ({ id, title, children, status = "pending" }) => {
   const handleSetDelete = () => {
     setSelectedOption("delete");
     setDropdownVisible(false);
-    const updatedTasks = taskData.map((task) => {
-      if (task.id !== id) {
-        return task;
-      }
-      return 1;
-    });
+    const updatedTasks = taskData.filter((task) => task.id !== id);
     setTaskData(updatedTasks);
   };
 
