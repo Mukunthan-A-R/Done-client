@@ -1,5 +1,6 @@
 import React from "react";
 import { IoSettingsOutline } from "react-icons/io5";
+import { AiOutlineDelete } from "react-icons/ai";
 import DialogBox from "./DialogBox";
 
 const Tools = () => {
@@ -8,6 +9,9 @@ const Tools = () => {
       <p className="font-medium ">Tools</p>
       <DialogBox />
 
+      <button>
+        <AiOutlineDelete size={25} />
+      </button>
       <button>
         <IoSettingsOutline size={25} />
       </button>
