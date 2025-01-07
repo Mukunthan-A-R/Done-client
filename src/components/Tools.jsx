@@ -1,9 +1,9 @@
 import React from "react";
 import { IoSettingsOutline } from "react-icons/io5";
-import { IoStatsChartOutline } from "react-icons/io5";
 
 import DialogBox from "./DialogBox";
 import DeleteAll from "./DeleteConfirmationDialog";
+import Stats from "./Stats";
 
 const Tools = () => {
   return (
@@ -11,12 +11,10 @@ const Tools = () => {
       <p className="font-medium ">Tools</p>
       <DialogBox />
       <DeleteAll></DeleteAll>
+      <Stats></Stats>
 
       <button>
         <IoSettingsOutline size={25} />
-      </button>
-      <button>
-        <IoStatsChartOutline size={25} />
       </button>
     </div>
   );
