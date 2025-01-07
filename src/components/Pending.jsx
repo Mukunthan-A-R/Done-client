@@ -3,6 +3,7 @@ import Card from "./Card";
 
 const Pending = ({ tasks }) => {
   const pendingTasks = tasks.filter((task) => task.status === "pending");
+
   return (
     <div className="flex-col bg-red-400 p-4 rounded-lg shadow m-2">
       <h2 className="text-gray-800 font-bold text-center">PENDING</h2>

@@ -7,6 +7,14 @@ import currentTasks from "../data/atoms";
 
 function TaskSession() {
   const [taskData, setTaskData] = useRecoilState(currentTasks);
+
+  if (taskData.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-[80vh]">
+        No current task assigned !
+      </div>
+    );
+  }
   return (
     <div className="h-screen flex flex-col md:flex-row">
       {/* Outer Container for 3 Sections */}

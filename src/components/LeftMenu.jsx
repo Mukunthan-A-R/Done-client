@@ -1,5 +1,6 @@
 import React from "react";
 import Tools from "./Tools";
+import SliderDown from "./SliderDown";
 
 const LeftMenu = () => {
   return (
@@ -9,6 +10,7 @@ const LeftMenu = () => {
         <p className="text-white">
           This is the left section, with a blue background.
         </p>
+        <SliderDown></SliderDown>
       </div>
       <Tools></Tools>
     </div>
