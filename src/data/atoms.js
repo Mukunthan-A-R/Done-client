@@ -6,4 +6,9 @@ const currentTasks = atom({
   default: tasks,
 });
 
+export const workSheets = atom({
+  key: "workSheets",
+  default: [],
+});
+
 export default currentTasks;
