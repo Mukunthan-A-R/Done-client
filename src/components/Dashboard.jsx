@@ -44,9 +44,8 @@ const Dashboard = ({ children }) => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-md">
-      <h2 className="text-3xl font-semibold text-gray-800 mb-4">Dashboard</h2>
-      <div className="h-96">
+    <div className=" max-w-4xl mx-auto bg-white ">
+      <div className="h-96 ">
         <Pie data={data} options={options} />
       </div>
     </div>

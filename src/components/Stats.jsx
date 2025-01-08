@@ -37,11 +37,21 @@ const EmptyDialog = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-xl w-auto w-full">
-        <div className="flex ">
-          <div>
-            <h3 className="font-bold">Stats</h3>
+      <div className="bg-white p-6 rounded-lg shadow-xl w-auto ">
+        <h2 className="text-3xl font-semibold text-gray-800 mb-4">Dashboard</h2>
+        <div className="flex">
+          <div className="pt-1">
+            <p className="font-semibold text-lg">
+              Pending: {taskCount.pending}
+            </p>
+            <p className="font-semibold text-lg">
+              Active:{`  `} {taskCount.active}
+            </p>
+            <p className="font-semibold text-lg">
+              Completed: {taskCount.completed}
+            </p>
           </div>
+
           <Dashboard>{taskCount}</Dashboard>
         </div>
         <div className="flex justify-end space-x-4 pt-2">
