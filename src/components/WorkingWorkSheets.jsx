@@ -7,7 +7,7 @@ const WorkingWorkSheets = () => {
 
   // Using useEffect to track changes in 'data'
   useEffect(() => {
-    console.log("Data changed:", data);
+    // console.log("Data changed:", data);
   }, [data]); // This will run whenever 'data' changes
 
   return (

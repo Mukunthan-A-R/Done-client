@@ -5,7 +5,7 @@ const tasks = [
     description: "Description of Task 1",
     status: "active",
     timeDuration: 3, // Static value in hours
-    created: "2024-12-01T08:30:00Z", // Static date and time
+    created: "2025-01-08T08:30:00Z", // Today (static)
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const tasks = [
     description: "Description of Task 2",
     status: "completed",
     timeDuration: 2, // Static value in hours
-    created: "2024-12-02T09:00:00Z", // Static date and time
+    created: "2025-01-07T09:00:00Z", // Yesterday (static)
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const tasks = [
     description: "Description of Task 3",
     status: "pending",
     timeDuration: 1, // Static value in hours
-    created: "2024-12-03T10:00:00Z", // Static date and time
+    created: "2025-01-08T10:00:00Z", // Today (static)
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const tasks = [
     description: "Description of Task 4",
     status: "active",
     timeDuration: 4, // Static value in hours
-    created: "2024-12-04T11:30:00Z", // Static date and time
+    created: "2025-01-07T11:30:00Z", // Yesterday (static)
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const tasks = [
     description: "Description of Task 5",
     status: "completed",
     timeDuration: 5, // Static value in hours
-    created: "2024-12-05T12:00:00Z", // Static date and time
+    created: "2025-01-08T12:00:00Z", // Today (static)
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const tasks = [
     description: "Description of Task 6",
     status: "pending",
     timeDuration: 3, // Static value in hours
-    created: "2024-12-06T13:15:00Z", // Static date and time
+    created: "2025-01-07T13:15:00Z", // Yesterday (static)
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const tasks = [
     description: "Description of Task 7",
     status: "active",
     timeDuration: 2, // Static value in hours
-    created: "2024-12-07T14:45:00Z", // Static date and time
+    created: "2025-01-08T14:45:00Z", // Today (static)
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const tasks = [
     description: "Description of Task 8",
     status: "completed",
     timeDuration: 1, // Static value in hours
-    created: "2024-12-08T15:30:00Z", // Static date and time
+    created: "2025-01-07T15:30:00Z", // Yesterday (static)
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const tasks = [
     description: "Description of Task 9",
     status: "pending",
     timeDuration: 4, // Static value in hours
-    created: "2024-12-09T16:00:00Z", // Static date and time
+    created: "2025-01-08T16:00:00Z", // Today (static)
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ const tasks = [
     description: "Description of Task 10",
     status: "active",
     timeDuration: 3, // Static value in hours
-    created: "2024-12-10T17:30:00Z", // Static date and time
+    created: "2025-01-07T17:30:00Z", // Yesterday (static)
   },
 ];
 

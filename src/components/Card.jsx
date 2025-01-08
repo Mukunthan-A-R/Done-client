@@ -2,18 +2,29 @@ import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import currentTasks from "../data/atoms";
 
-const Card = ({
-  id,
-  title,
-  children,
-  status = "pending",
-  timeDuration,
-  cerated,
-}) => {
+const Card = ({ id, title, children, status, timeDuration, cerated }) => {
   // State for managing the dropdown visibility and selected option
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState(status);
   const [taskData, setTaskData] = useRecoilState(currentTasks);
+
+  // Current Date
+  const currentDate = new Date();
+  const RemainingTime = calculateTimeDifference(currentDate, cerated);
+  // console.log(RemainingTime);
+  const cardBg = (RemainingTime) => {
+    if (RemainingTime[0] >= 2) {
+      return "bg-green-500";
+    } else if (RemainingTime[0] === 1) {
+      return "bg-lime-500";
+    } else if (RemainingTime[0] === 0) {
+      if (RemainingTime[1] <= 20) return "bg-yellow-400";
+    } else if (RemainingTime[0] === 0) {
+      return "bg-amber-500";
+    }
+    return "bg-red-500";
+  };
+  cardBg(RemainingTime);
 
   // Toggle the dropdown visibility
   const toggleDropdown = () => setDropdownVisible(!dropdownVisible);
@@ -51,25 +62,39 @@ const Card = ({
     setTaskData(updatedTasks);
   };
 
-  const handleSetTaskData = () => {
-    const updatedTasks = taskData.map((task) => {
-      if (task.id === id) {
-        return { ...task, status: "active" };
-      }
-      return task;
-    });
-    setTaskData(updatedTasks);
-  };
+  // const handleSetTaskData = () => {
+  //   const updatedTasks = taskData.map((task) => {
+  //     if (task.id === id) {
+  //       return { ...task, status: "active" };
+  //     }
+  //     return task;
+  //   });
+  //   setTaskData(updatedTasks);
+  // };
 
   return (
     <div className="flex justify-center mt-4">
       {/* Card with Heading and Description */}
       <div
-        className={`w-full max-w-md py-5 px-5  rounded-lg shadow-lg relative bg-gray-100 `}
+        className={`w-full max-w-md py-5 px-5  rounded-lg shadow-lg relative  ${
+          status != "completed" ? cardBg(RemainingTime) : "bg-green-300"
+        }`}
       >
         <h2 className="text-xl font-bold mb-1">{title}</h2>
         <p className="text-base mb-2">{children}</p>
         <p>Duration:{` ${timeDuration}${timeDuration === 1 ? "hr" : "hrs"}`}</p>
+        {status !== "completed" && (
+          <p>
+            Remaining Time :{" "}
+            {`${RemainingTime[0] === 0 ? "" : RemainingTime[0] + "day"} `}
+            {`${
+              RemainingTime[1] === 0 && RemainingTime[0] === 0
+                ? ""
+                : RemainingTime[1] + "hr"
+            } `}
+            {`${RemainingTime[2] + "min"} `}
+          </p>
+        )}
         {/* Three dot or cross button on the top-right */}
         <button
           onClick={toggleDropdown}
@@ -149,3 +174,36 @@ const Card = ({
 };
 
 export default Card;
+
+const calculateTimeDifference = (date1, date2) => {
+  // Ensure both date parameters are Date objects
+  const d1 = new Date(date1);
+  const d2 = new Date(date2);
+
+  // Get the difference in milliseconds
+  const timeDifference = Math.abs(d2 - d1);
+
+  // Convert milliseconds to time units
+  const millisecondsInOneDay = 1000 * 60 * 60 * 24;
+  const millisecondsInOneHour = 1000 * 60 * 60;
+  const millisecondsInOneMinute = 1000 * 60;
+  const millisecondsInOneSecond = 1000;
+
+  // Calculate days, hours, minutes, and seconds
+  const days = Math.floor(timeDifference / millisecondsInOneDay);
+  const hours = Math.floor(
+    (timeDifference % millisecondsInOneDay) / millisecondsInOneHour
+  );
+  const minutes = Math.floor(
+    (timeDifference % millisecondsInOneHour) / millisecondsInOneMinute
+  );
+  const seconds = Math.floor(
+    (timeDifference % millisecondsInOneMinute) / millisecondsInOneSecond
+  );
+  const result = [];
+  result.push(days);
+  result.push(hours);
+  result.push(minutes);
+  // Return the difference in a formatted string
+  return result;
+};
