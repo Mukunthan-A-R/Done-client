@@ -38,8 +38,12 @@ const Accordion = () => {
         isOpen={openIndex === 0}
         onToggle={() => handleToggle(0)}
       >
+        <p className="pb-2">
+          Add task for managing different subjects. We help you to possibly
+          manage and excel. If you want a address a new subject create a new
+          worksheet below.
+        </p>
         <Worksheet></Worksheet>
-        <p>This is the content of the first accordion item.</p>
       </AccordionItem>
       <AccordionItem
         title="WorkBook"
