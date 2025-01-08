@@ -27,8 +27,11 @@ function Navbar() {
           <a href="/dashboard" className="hover:text-gray-400">
             Dashboard
           </a>
-          <a href="/contact" className="hover:text-gray-400">
-            Contact
+          <a href="/login" className="hover:text-gray-400">
+            Login
+          </a>
+          <a href="/signup" className="hover:text-gray-400">
+            Sign up
           </a>
         </div>
 
@@ -76,10 +79,16 @@ function Navbar() {
             Dashboard
           </a>
           <a
-            href="/contact"
+            href="/login"
             className="block py-2 px-4 text-gray-300 hover:bg-gray-700 rounded"
           >
-            Contact
+            Login
+          </a>
+          <a
+            href="/signup"
+            className="block py-2 px-4 text-gray-300 hover:bg-gray-700 rounded"
+          >
+            Sign up
           </a>
         </div>
       )}
