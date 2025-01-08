@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Worksheet from "./Worksheet";
+import WorkingWorkSheets from "./WorkingWorkSheets";
 
 const AccordionItem = ({ title, children, isOpen, onToggle }) => {
   return (
@@ -33,7 +34,7 @@ const Accordion = () => {
   return (
     <div className="w-full max-w-lg mx-auto mt-10">
       <AccordionItem
-        title="Add new WorkSheet"
+        title="Add WorkSheet"
         isOpen={openIndex === 0}
         onToggle={() => handleToggle(0)}
       >
@@ -45,7 +46,7 @@ const Accordion = () => {
         isOpen={openIndex === 1}
         onToggle={() => handleToggle(1)}
       >
-        <p>This is the content of the second accordion item.</p>
+        <WorkingWorkSheets></WorkingWorkSheets>
       </AccordionItem>
       <AccordionItem
         title="Accordion Item 3"

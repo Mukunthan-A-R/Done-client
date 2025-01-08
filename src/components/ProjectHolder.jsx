@@ -6,7 +6,6 @@ const ProjectHolder = () => {
   return (
     <div className="text-white font-medium font-lg">
       <Accordion></Accordion>
-      <Worksheet></Worksheet>
     </div>
   );
 };
