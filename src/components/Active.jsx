@@ -13,6 +13,8 @@ const Active = ({ tasks }) => {
       <div>
         {activeTasks.map((task) => (
           <Card
+            cerated={task.created}
+            timeDuration={task.timeDuration}
             key={task.id}
             id={task.id}
             title={task.title}

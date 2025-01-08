@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import currentTasks from "../data/atoms";
 
-const Card = ({ id, title, children, status = "pending" }) => {
+const Card = ({
+  id,
+  title,
+  children,
+  status = "pending",
+  timeDuration,
+  cerated,
+}) => {
   // State for managing the dropdown visibility and selected option
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState(status);
@@ -62,7 +69,7 @@ const Card = ({ id, title, children, status = "pending" }) => {
       >
         <h2 className="text-xl font-bold mb-1">{title}</h2>
         <p className="text-base mb-2">{children}</p>
-
+        <p>Duration:{` ${timeDuration}${timeDuration === 1 ? "hr" : "hrs"}`}</p>
         {/* Three dot or cross button on the top-right */}
         <button
           onClick={toggleDropdown}
