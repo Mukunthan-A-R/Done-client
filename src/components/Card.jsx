@@ -13,6 +13,8 @@ const Card = ({ id, title, children, status, timeDuration, cerated }) => {
   const RemainingTime = calculateTimeDifference(currentDate, cerated);
   // console.log(RemainingTime);
   const cardBg = (RemainingTime) => {
+    console.log(RemainingTime);
+
     if (RemainingTime[0] >= 2) {
       return "bg-green-500";
     } else if (RemainingTime[0] === 1) {
@@ -180,8 +182,8 @@ const calculateTimeDifference = (date1, date2) => {
   const d1 = new Date(date1);
   const d2 = new Date(date2);
 
-  // Get the difference in milliseconds
-  const timeDifference = Math.abs(d2 - d1);
+  // Calculate the difference in milliseconds
+  const timeDifference = d2 - d1;
 
   // Convert milliseconds to time units
   const millisecondsInOneDay = 1000 * 60 * 60 * 24;
@@ -190,20 +192,26 @@ const calculateTimeDifference = (date1, date2) => {
   const millisecondsInOneSecond = 1000;
 
   // Calculate days, hours, minutes, and seconds
-  const days = Math.floor(timeDifference / millisecondsInOneDay);
+  const days = Math.floor(Math.abs(timeDifference) / millisecondsInOneDay);
   const hours = Math.floor(
-    (timeDifference % millisecondsInOneDay) / millisecondsInOneHour
+    Math.abs(timeDifference % millisecondsInOneDay) / millisecondsInOneHour
   );
   const minutes = Math.floor(
-    (timeDifference % millisecondsInOneHour) / millisecondsInOneMinute
+    Math.abs(timeDifference % millisecondsInOneHour) / millisecondsInOneMinute
   );
   const seconds = Math.floor(
-    (timeDifference % millisecondsInOneMinute) / millisecondsInOneSecond
+    Math.abs(timeDifference % millisecondsInOneMinute) / millisecondsInOneSecond
   );
-  const result = [];
-  result.push(days);
-  result.push(hours);
-  result.push(minutes);
-  // Return the difference in a formatted string
+
+  const result = [days, hours, minutes, seconds];
+
+  // If date1 is later, the difference should be negative
+  if (timeDifference < 0) {
+    result[0] = -result[0]; // Make the days negative
+    result[1] = -result[1]; // Make the hours negative
+    result[2] = -result[2]; // Make the minutes negative
+    result[3] = -result[3]; // Make the seconds negative
+  }
+
   return result;
 };
