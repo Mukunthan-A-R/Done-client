@@ -5,7 +5,7 @@ const Pending = ({ tasks }) => {
   const pendingTasks = tasks.filter((task) => task.status === "pending");
 
   return (
-    <div className="flex-col bg-red-400 p-4 rounded-lg shadow m-2">
+    <div className="flex-col bg-red-400 p-4 rounded-lg shadow m-2 overflow-y-auto border">
       <h2 className="text-gray-800 font-bold text-center">PENDING</h2>
       <p className="text-gray-600">
         This is the first container with light grey background.
