@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import LeftMenu from "../components/LeftMenu";
 import WorkBook from "../components/WorkBook";
 
@@ -9,7 +9,9 @@ function Dashboard() {
         <LeftMenu></LeftMenu>
       </div>
       <div className="w-full sm:w-10/12 p-4">
-        <WorkBook></WorkBook>
+        <Suspense fallback={<div>Select a WorkSheet...</div>}>
+          <WorkBook></WorkBook>
+        </Suspense>
       </div>
     </div>
   );

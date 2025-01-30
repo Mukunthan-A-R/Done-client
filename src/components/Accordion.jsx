@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Worksheet from "./Worksheet";
 import WorkingWorkSheets from "./WorkingWorkSheets";
 
@@ -50,7 +50,10 @@ const Accordion = () => {
         isOpen={openIndex === 1}
         onToggle={() => handleToggle(1)}
       >
-        <WorkingWorkSheets></WorkingWorkSheets>
+        <Suspense fallback={<div>Loading...</div>}>
+          <WorkingWorkSheets></WorkingWorkSheets>
+          {/* <LazyLoadedComponent /> */}
+        </Suspense>
       </AccordionItem>
       <AccordionItem
         title="Accordion Item 3"
