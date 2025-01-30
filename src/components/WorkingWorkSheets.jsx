@@ -13,15 +13,15 @@ const WorkingWorkSheets = () => {
   return (
     <div>
       <ul>
-        {data.map((val, index) => (
+        {data.map((val) => (
           <li
             className={` ${
-              index < data.length - 1 ? "border-b border-gray-300" : ""
+              val[1] < data.length - 1 ? "border-b border-gray-300" : ""
             }`}
-            key={index}
+            key={val[1]}
           >
             <button className=" py-2 w-full flex hover:bg-blue-800">
-              {val}
+              {val[0]}
             </button>
           </li> // Ensure to return the <li> element here
         ))}

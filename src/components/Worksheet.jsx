@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { workSheets } from "../data/atoms";
+import { v4 as uuidv4 } from "uuid";
 
 const Worksheet = () => {
   const [isOpen, setIsOpen] = useState(false); // State to control modal visibility
   const [worksheetName, setWorksheetName] = useState(""); // State to store worksheet name
 
   const [workSheetsData, setWorkSheetsData] = useRecoilState(workSheets);
+
+  console.log(workSheetsData);
+  const uniqueId = uuidv4();
 
   // Function to open the dialog box
   const openDialog = () => {
@@ -26,7 +30,10 @@ const Worksheet = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setWorkSheetsData((workSheetsData) => [...workSheetsData, worksheetName]);
+    setWorkSheetsData((workSheetsData) => [
+      ...workSheetsData,
+      [worksheetName, uniqueId],
+    ]);
     setWorksheetName(""); // Clear the input after submission
     closeDialog(); // Close the dialog box after submission
   };
