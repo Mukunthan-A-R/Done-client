@@ -11,4 +11,9 @@ export const workSheets = atom({
   default: [],
 });
 
+export const currentSheet = atom({
+  key: "currentSheetState",
+  deafult: [],
+});
+
 export default currentTasks;

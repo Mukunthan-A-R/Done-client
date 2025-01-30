@@ -1,6 +1,6 @@
 import React from "react";
-import TaskSession from "../components/TaskSession";
 import LeftMenu from "../components/LeftMenu";
+import WorkBook from "../components/WorkBook";
 
 function Dashboard() {
   return (
@@ -9,7 +9,7 @@ function Dashboard() {
         <LeftMenu></LeftMenu>
       </div>
       <div className="w-full sm:w-10/12 p-4">
-        <TaskSession></TaskSession>
+        <WorkBook></WorkBook>
       </div>
     </div>
   );
