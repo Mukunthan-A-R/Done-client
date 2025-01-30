@@ -13,7 +13,7 @@ const Card = ({ id, title, children, status, timeDuration, cerated }) => {
   const RemainingTime = calculateTimeDifference(currentDate, cerated);
   // console.log(RemainingTime);
   const cardBg = (RemainingTime) => {
-    console.log(RemainingTime);
+    // console.log(RemainingTime);
 
     if (RemainingTime[0] >= 2) {
       return "bg-green-500";

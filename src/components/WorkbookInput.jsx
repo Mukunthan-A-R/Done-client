@@ -11,7 +11,7 @@ const WorkbookInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submit action
     setSubmittedName(workbookName); // Save the entered name
-    console.log(workbookName);
+    // console.log(workbookName);
 
     setWorkbookName(""); // Reset input field after submission
   };
