@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
-import { workSheets } from "../data/atoms";
+import { workBook, workSheets } from "../data/atoms";
 import { v4 as uuidv4 } from "uuid";
 
 const Worksheet = () => {
@@ -8,6 +8,7 @@ const Worksheet = () => {
   const [worksheetName, setWorksheetName] = useState(""); // State to store worksheet name
 
   const [workSheetsData, setWorkSheetsData] = useRecoilState(workSheets);
+  const [workBookData, setWorkBookData] = useRecoilState(workBook);
 
   // console.log(workSheetsData);
   const uniqueId = uuidv4();
@@ -30,10 +31,18 @@ const Worksheet = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setWorkSheetsData((workSheetsData) => [
-      ...workSheetsData,
-      [worksheetName, uniqueId],
+    setWorkSheetsData([...workSheetsData, [worksheetName, uniqueId]]);
+
+    setWorkBookData([
+      ...workBookData,
+      {
+        name: worksheetName,
+        id: uniqueId,
+        tasks: [],
+      },
     ]);
+    console.log(workBookData);
+
     setWorksheetName(""); // Clear the input after submission
     closeDialog(); // Close the dialog box after submission
   };
