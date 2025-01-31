@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { workSheets, currentSheet } from "../data/atoms";
 
 const WorkingWorkSheets = () => {
+  const [currentSelection, setCurrentSelection] = useState("");
   const [data, setData] = useRecoilState(workSheets);
-  // const [data1, setData1] = useRecoilState(currentSheet);
   const setCurrentSheetVal = useSetRecoilState(currentSheet);
 
   // Using useEffect to track changes in 'data'
@@ -23,10 +23,12 @@ const WorkingWorkSheets = () => {
             key={val[1]}
           >
             <button
-              className=" py-2 w-full flex hover:bg-blue-800"
+              className={`px-2 pl-4 rounded-lg py-2 w-full flex hover:bg-blue-800 ${
+                currentSelection === val[1] ? "bg-blue-600" : ""
+              } `}
               onClick={() => {
                 setCurrentSheetVal(val);
-                // console.log(val);
+                setCurrentSelection(val[1]);
               }}
             >
               {val[0]}
