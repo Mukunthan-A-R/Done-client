@@ -5,7 +5,7 @@ import { workSheets, currentSheet } from "../data/atoms";
 const WorkingWorkSheets = () => {
   const [data, setData] = useRecoilState(workSheets);
   // const [data1, setData1] = useRecoilState(currentSheet);
-  const [currentSheetVal, setCurrentSheetVal] = useRecoilState(currentSheet);
+  const setCurrentSheetVal = useSetRecoilState(currentSheet);
 
   // Using useEffect to track changes in 'data'
   useEffect(() => {
@@ -23,9 +23,7 @@ const WorkingWorkSheets = () => {
             key={val[1]}
           >
             <button
-              className={`px-2 pl-4 py-2 rounded-md w-full flex hover:bg-blue-800 ${
-                currentSheetVal[1] === val[1] ? "bg-blue-600 text-white" : ""
-              }`}
+              className=" py-2 w-full flex hover:bg-blue-800"
               onClick={() => {
                 setCurrentSheetVal(val);
                 // console.log(val);
