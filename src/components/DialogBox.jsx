@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
-import { useRecoilState } from "recoil";
-import currentTasks from "../data/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import currentTasks, { currentSheet, workBook } from "../data/atoms";
 
 const DialogBox = () => {
   const [taskData, setTaskData] = useRecoilState(currentTasks);
+  const [workBookData, setWorkBookData] = useRecoilState(workBook);
+  const setCurrentSheetVal = useRecoilValue(currentSheet);
+
   // State for managing dialog visibility
   const [isOpen, setIsOpen] = useState(false);
 
@@ -37,6 +40,13 @@ const DialogBox = () => {
       },
     ]);
 
+    handleWorkBookData(setCurrentSheetVal, {
+      title: taskTitle,
+      description: taskDescription,
+      id: taskData.length + 1,
+      status: "pending",
+    });
+
     // Reset form after submission (optional)
     setTaskTitle("");
     setTaskDescription("");
@@ -44,6 +54,19 @@ const DialogBox = () => {
     // Close the dialog
     closeDialog();
   };
+
+  function handleWorkBookData(sheetData, taskData) {
+    const data = workBookData.find((val) => sheetData[1] === val.id);
+    setWorkBookData(
+      workBookData.map((val) =>
+        val.id === data.id ? copytask(data, taskData) : val
+      )
+    );
+
+    function copytask(data, taskData) {
+      return { ...data, tasks: [...data.tasks, taskData] };
+    }
+  }
 
   return (
     <div className="flex justify-center items-center">

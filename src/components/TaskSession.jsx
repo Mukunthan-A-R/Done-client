@@ -3,10 +3,13 @@ import Pending from "./Pending";
 import Active from "./Active";
 import Completed from "./Completed";
 import { useRecoilState } from "recoil";
-import currentTasks from "../data/atoms";
+import currentTasks, { workBook } from "../data/atoms";
 
-function TaskSession() {
-  const [taskData, setTaskData] = useRecoilState(currentTasks);
+function TaskSession({ taskData }) {
+  // const [taskData, setTaskData] = useRecoilState(currentTasks);
+  // console.log("taskData " + taskData);
+
+  // console.log(taskData.length === 0);
 
   if (taskData.length !== 0) {
     return (
