@@ -12,7 +12,7 @@ const LeftMenu = () => {
           This is the left section, with a blue background.
         </p>
       </div>
-      <Tools></Tools>
+      {/* <Tools></Tools> */}
     </div>
   );
 };

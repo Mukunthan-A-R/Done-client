@@ -8,7 +8,7 @@ function Dashboard() {
       <div className="w-full sm:w-2/12 bg-[#243a76] ">
         <LeftMenu></LeftMenu>
       </div>
-      <div className="w-full sm:w-10/12 p-4">
+      <div className="w-full sm:w-10/12 ">
         <Suspense fallback={<div>Select a WorkSheet...</div>}>
           <WorkBook></WorkBook>
         </Suspense>

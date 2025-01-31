@@ -10,7 +10,7 @@ function TaskSession() {
 
   if (taskData.length !== 0) {
     return (
-      <div className="h-screen flex flex-col md:flex-row">
+      <div className="h-screen flex flex-col md:flex-row p-4">
         {/* Outer Container for 3 Sections */}
         <div className="flex flex-col md:flex-row w-full h-full">
           {/* First Container */}
